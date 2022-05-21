@@ -1,3 +1,5 @@
+import PostFlight from "../components/PostFlight";
+
 const MoRong = () => {
   return (
     <div
@@ -135,7 +137,7 @@ const MoRong = () => {
                             color: "rgb(3, 18, 26)",
                           }}
                         >
-                          VietJet Air{" "}
+                          <PostFlight />
                         </h4>
                         <div
                           dir="auto"
