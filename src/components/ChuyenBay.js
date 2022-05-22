@@ -1,15 +1,12 @@
 import React, { Component } from 'react';
 import axios from 'axios';
-import MoRong from "../components/MoRong";
-import { useState } from "react";
-
 
 class ChuyenBay extends Component {
   constructor(props) {
     super(props)
   
     this.state = {
-       flight: ''
+      flight: ''
     }
   }
 
@@ -30,18 +27,22 @@ class ChuyenBay extends Component {
       <div>
         <div>
         {
-          <div key={flight.maChuyenBay}>
-            <div className="card d_flex">
-              <div className="left">
-                <div className="title">
-                {flight.noiDi} (DAD) → {flight.noiDen} (SGN)
+          
+           
+            <div key={flight.maChuyenBay}>
+              <div className="card d_flex">
+                <div className="left">
+                  <div className="title">
+                    {flight.noiDi} → {flight.noiDen}
+                  </div>
+                  <p className="date">
+                    T6, 06 Thg 05 2022 | {flight.loaiVe}
+                  </p>
                 </div>
-                <p className="date">
-                  T6, 06 Thg 05 2022 | 1 passengers | Phổ thông
-                </p>
-              </div>
-            </div>              
-          </div>
+              </div>              
+            </div>
+          
+          
         } 
         </div>
       </div>
