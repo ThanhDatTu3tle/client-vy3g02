@@ -89,22 +89,6 @@ const VeMayBay = () => {
                         </span>
                       </div>
                     </label>
-                    <label
-                      className="_2nbs2 _1Ogwk ZXmze"
-                      data-id="multi-city-radio"
-                    >
-                      <input
-                        type="radio"
-                        name="formType"
-                        defaultValue="MULTICITY"
-                      />
-                      <div className="_1sBVI" />
-                      <div className="_35qnS">
-                        <span className="_1KrnW _1EnnQ _2i_vU _1dKIX">
-                          Nhiều thành phố
-                        </span>
-                      </div>
-                    </label>
                   </div>
                 </div>
                 <div className="_1MgP3">
@@ -144,6 +128,7 @@ const VeMayBay = () => {
                     className="_2tXgG"
                     style={{
                       position: "relative",
+
                     }}
                   >
                     <div>
@@ -160,6 +145,7 @@ const VeMayBay = () => {
                         className="p6vKa"
                         style={{
                           position: "relative",
+                          
                         }}
                       >
                         <label className="_3kQG9">Điểm khởi hành</label>
@@ -183,44 +169,11 @@ const VeMayBay = () => {
                               <option value="dn">Đà Nẵng (DAD)</option>
                               <option value="hcm">TP HCM (SGN)</option>
                               <option value="hn">Hà Nội (HAN)</option>
-                              <option value="dl">Đà Lạt (DLI)</option>
                             </select>
                           </div>
                         </label>
                         <div />
-                        <div
-                          className="_1_LZo"
-                          aria-label="Swap Airports"
-                          role="button"
-                          onClick={handleSwapper}
-                          tabIndex={0}
-                        >
-                          <svg
-                            fill="#FFFFFF"
-                            width={20}
-                            height={20}
-                            stroke="currentColor"
-                            strokeLinecap="round"
-                            viewBox="0 0 24 24"
-                            xmlns="http://www.w3.org/2000/svg"
-                            xmlnsXlink="http://www.w3.org/1999/xlink"
-                          >
-                            <g>
-                              <g
-                                stroke="none"
-                                strokeWidth={1}
-                                fill="none"
-                                fillRule="evenodd"
-                              >
-                                <g fill="#FFFFFF">
-                                  <g>
-                                    <path d="M14,6.41421356 L14,16.0041149 C14,16.5541271 14.4438648,17 15,17 C15.5522847,17 16,16.545142 16,16.0041149 L16,6.41421356 L16.2928932,6.70710678 C16.6834175,7.09763107 17.3165825,7.09763107 17.7071068,6.70710678 C18.0976311,6.31658249 18.0976311,5.68341751 17.7071068,5.29289322 L15.7071068,3.29289322 C15.3165825,2.90236893 14.6834175,2.90236893 14.2928932,3.29289322 L12.2928932,5.29289322 C11.9023689,5.68341751 11.9023689,6.31658249 12.2928932,6.70710678 C12.6834175,7.09763107 13.3165825,7.09763107 13.7071068,6.70710678 L14,6.41421356 Z M8,17.5857864 L8,7.99588509 C8,7.44587294 8.44386482,7 9,7 C9.55228475,7 10,7.45485801 10,7.99588509 L10,17.5857864 L10.2928932,17.2928932 C10.6834175,16.9023689 11.3165825,16.9023689 11.7071068,17.2928932 C12.0976311,17.6834175 12.0976311,18.3165825 11.7071068,18.7071068 L9.70710678,20.7071068 C9.31658249,21.0976311 8.68341751,21.0976311 8.29289322,20.7071068 L6.29289322,18.7071068 C5.90236893,18.3165825 5.90236893,17.6834175 6.29289322,17.2928932 C6.68341751,16.9023689 7.31658249,16.9023689 7.70710678,17.2928932 L8,17.5857864 Z" />
-                                  </g>
-                                </g>
-                              </g>
-                            </g>
-                          </svg>
-                        </div>
+                        
                       </div>
                     </div>
                   </div>
@@ -265,7 +218,6 @@ const VeMayBay = () => {
                               <option value="dn">Đà Nẵng (DAD)</option>
                               <option value="hcm">TP HCM (SGN)</option>
                               <option value="hn">Hà Nội (HAN)</option>
-                              <option value="dl">Đà Lạt (DLI)</option>
                             </select>
                           </div>
                         </label>
@@ -701,23 +653,9 @@ const VeMayBay = () => {
                     }}
                   >
                     <div className="p6vKa">
-                      <label className="_3kQG9">
-                        <div className="_2zIY5">
-                          <label className="Ahf8s">
-                            <input
-                              type="checkbox"
-                              checked={air.khuhoi}
-                              className="_3AztD"
-                              onClick={handleKhuHoi}
-                            />
-                          </label>
-                          <label className="_35g_5" htmlFor={1651063882370}>
-                            Khứ hồi
-                          </label>
-                        </div>
-                      </label>
-                      <span language="vi">
-                        <label htmlFor="16cf5fef4d3e" className="_3AxLJ _30alp">
+                      <label className="_3kQG9">Ngày về</label>
+                      <span>
+                        <label htmlFor="7dbb6a5653e7" className="_3AxLJ">
                           <i className="_1NPyI">
                             <svg
                               strokeWidth={0}
@@ -733,14 +671,11 @@ const VeMayBay = () => {
                               <path d="M16,6 L8,6 C8,6.55237094 7.55613518,7 7,7 C6.44771525,7 6,6.55628335 6,6.00019251 L5.13606889,6 C4.50950574,6 4,6.47929792 4,7.06818297 L4,18.931817 C4,19.5205004 4.50913005,20 5.13606889,20 L18.8639311,20 C19.4904943,20 20,19.5207021 20,18.931817 L20,9.99999963 C19.9997095,9.99999988 19.9994189,10 19.9991283,10 L6.00087166,10 C5.4481055,10 5,9.55613518 5,9 C5,8.44771525 5.44463086,8 6.00087166,8 L19.9991283,8 C19.9994189,8 19.9997095,8.00000012 20,8.00000037 L20,7.06818297 C20,6.47949957 19.49087,6 18.8639311,6 L18,6 C18,6.55237094 17.5561352,7 17,7 C16.4477153,7 16,6.55628335 16,6.00019251 Z M18,4 L18.6732664,4 C20.5098226,4 22,5.41928898 22,7.16787737 L22,18.8321226 C22,20.581459 20.5088819,22 18.6732664,22 L5.32673364,22 C3.49017741,22 2,20.580711 2,18.8321226 L2,7.16787737 C2,5.41854095 3.49111814,4 5.32673364,4 L6,4 L6,2.99980749 C6,2.44762906 6.44386482,2 7,2 C7.55228475,2 8,2.44371665 8,2.99980749 L8,4 L16,4 L16,2.99980749 C16,2.44762906 16.4438648,2 17,2 C17.5522847,2 18,2.44371665 18,2.99980749 L18,4 Z M7,14 C6.44771525,14 6,13.5522847 6,13 C6,12.4477153 6.44771525,12 7,12 C7.55228475,12 8,12.4477153 8,13 C8,13.5522847 7.55228475,14 7,14 Z M12,14 C11.4477153,14 11,13.5522847 11,13 C11,12.4477153 11.4477153,12 12,12 C12.5522847,12 13,12.4477153 13,13 C13,13.5522847 12.5522847,14 12,14 Z M17,15 C15.8954305,15 15,14.1045695 15,13 C15,11.8954305 15.8954305,11 17,11 C18.1045695,11 19,11.8954305 19,13 C19,14.1045695 18.1045695,15 17,15 Z M7,19 C6.44771525,19 6,18.5522847 6,18 C6,17.4477153 6.44771525,17 7,17 C7.55228475,17 8,17.4477153 8,18 C8,18.5522847 7.55228475,19 7,19 Z M12,19 C11.4477153,19 11,18.5522847 11,18 C11,17.4477153 11.4477153,17 12,17 C12.5522847,17 13,17.4477153 13,18 C13,18.5522847 12.5522847,19 12,19 Z M17,19 C16.4477153,19 16,18.5522847 16,18 C16,17.4477153 16.4477153,17 17,17 C17.5522847,17 18,17.4477153 18,18 C18,18.5522847 17.5522847,19 17,19 Z" />
                             </svg>
                           </i>
-                          <div className="_3KXUX">
+                          <div className="">
                             <input
-                              readOnly
-                              aria-label="Khứ hồi"
-                              aria-expanded="false"
-                              id="16cf5fef4d3e"
                               className="K07a_"
-                              defaultValue="30 Thg 04 2022"
+                              value={air.date}
+                              onChange={(e) => handleChangeAir(e, "date")}
                             />
                           </div>
                         </label>
@@ -797,11 +732,7 @@ const VeMayBay = () => {
                               onChange={(e) => handleChangeAir(e, "hangghe")}
                             >
                               <option value="phothong">Phổ thông</option>
-                              <option value="phothongdacbiet">
-                                Phổ thông đặc biệt
-                              </option>
                               <option value="thuonggia">Thương gia</option>
-                              <option value="hangnhat">Hạng nhất</option>
                             </select>
                           </div>
                         </label>

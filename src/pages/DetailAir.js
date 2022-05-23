@@ -67,11 +67,8 @@ const DetailAir = () => {
                       <div className="body">
                         <ChuyenBay />
                         {/* loc */}
-                          <div tabIndex={0} className="css-1dbjc4n r-9nbb9w r-otx420 r-1i1ao36">
-                            <div className="css-1dbjc4n r-14lw9ot r-kdyh1x r-rs99b7 r-16k0tzm" style={{ borderColor: "rgb(247, 249, 250)", margin: "20px 0", padding: "20px" }}>
-                              <PostFlight />
-                            </div>
-                        </div>
+                        <PostFlight />
+                        
                       </div>
 
                       {/* vggvgv */}
