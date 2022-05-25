@@ -1,0 +1,5 @@
+const FETCHED_FLIGHT = "FETCHED_FLIGHT";
+
+export {
+  FETCHED_FLIGHT
+};

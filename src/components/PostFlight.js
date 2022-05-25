@@ -7,7 +7,7 @@ const PostFlight = () => {
 
   useEffect(() => {
     let mounted = true;
-    fetch("http://139.59.225.244:3001/flight")
+    fetch(`http://139.59.225.244:3001/flight?ngayCatCanh=25%20thg%205`)
       .then(response => response.json())
       .then(items => {
         if(mounted) {

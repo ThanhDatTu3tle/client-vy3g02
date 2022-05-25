@@ -1,33 +1,47 @@
-import { useState } from "react";
+import { useState, useRef } from "react";
+import axiosMethod from "../utils/api-client";
 
-const VeMayBay = () => {
+const VeMayBay = (props) => {
+  const { onSubmit } = props;
+
+  const setFlight = ({setFlight})
+
+  const typingTimeoutRef = useRef(null);
+
   const [air, setAir] = useState({
     from: null,
     to: null,
     hangghe: null,
     date: null,
-    khuhoi: false,
   });
+
   const [showPopper, setShowPopper] = useState(false);
+
   const [quantity, setQuantity] = useState({
     nguoilon: 0,
     treem: 0,
     embe: 0,
   });
 
-  const handleChangeAir = (e, type) => {
-    setAir({
-      ...air,
-      [type]: e.target.value,
-    });
-  };
+  const handleChangeAir = (e) => {
+    const value = e.target.value;
 
-  const handleSwapper = () => {
     setAir({
       ...air,
-      from: air.to,
-      to: air.from,
+      from: value,
     });
+
+    if (!onSubmit) return;
+    if (typingTimeoutRef.current) {
+      clearTimeout(typingTimeoutRef.current);
+    };
+
+    typingTimeoutRef.current = setTimeout(() => {
+      const formValues = {
+        air: value,
+      };
+      onSubmit(formValues);
+    }, 300);
   };
 
   const handleShowPopper = () => {
@@ -48,12 +62,11 @@ const VeMayBay = () => {
     });
   };
 
-  const handleKhuHoi = () => {
-    setAir({
-      ...air,
-      khuhoi: true,
-    });
-  };
+  const sendQuery = async () => {
+
+		const data = fetch(`http://139.59.225.244:3001/flight?ngayCatCanh=25%20thg%205`);
+    setFlight(data);
+	};
 
   return (
     <div className="mMmI2 _2vjgs" data-elevation={2} style={{ width: 960 }}>
@@ -164,7 +177,7 @@ const VeMayBay = () => {
                                 fontWeight: "lighter",
                               }}
                               value={air.from}
-                              onChange={(e) => handleChangeAir(e, "from")}
+                              onChange={(e) => handleChangeAir(e)}
                             >
                               <option value="dn">Đà Nẵng (DAD)</option>
                               <option value="hcm">TP HCM (SGN)</option>
@@ -743,7 +756,7 @@ const VeMayBay = () => {
                 </div>
               </div>
               <div className="IwltO">
-                <button className="_3-JID _22K0g gLbQ- _90_75" type="button">
+                <button className="_3-JID _22K0g gLbQ- _90_75" type="button" onClick={sendQuery}>
                   <div className="afC62 _3pjEu">
                     <svg
                       strokeWidth={0}
