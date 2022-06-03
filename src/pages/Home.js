@@ -22,7 +22,6 @@ const Home = () => {
               <div className="css-1dbjc4n">
                 <div className="css-1dbjc4n r-kul7p6 r-1udh08x">
                   <img
-                    importance="low"
                     loading="lazy"
                     src="https://ik.imagekit.io/tvlk/image/imageResource/2019/11/26/1574782343873-4868281cc1be2523f5d5cc575a3c1daa.jpeg?tr=h-400,q-75"
                     decoding="async"

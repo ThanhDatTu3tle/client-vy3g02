@@ -195,7 +195,6 @@ const Detail = () => {
                   >
                     <img
                       role="button"
-                      importance="low"
                       loading="lazy"
                       src="https://ik.imagekit.io/tvlk/xpe-asset/AyJ40ZAo1DOyPyKLZ9c3RGQHTP2oT4ZXW+QmPVVkFQiXFSv42UaHGzSmaSzQ8DO5QIbWPZuF+VkYVRk6gh-Vg4ECbfuQRQ4pHjWJ5Rmbtkk=/2001269357497/B%2527Lao%2520Trekking%2520-%25202D1N%2520Tour-57ebd985-825d-4164-a882-ab0160ceb51d.jpeg?_src=imagekit&tr=c-at_max,h-512,q-60,w-720"
                       srcSet="https://ik.imagekit.io/tvlk/xpe-asset/AyJ40ZAo1DOyPyKLZ9c3RGQHTP2oT4ZXW+QmPVVkFQiXFSv42UaHGzSmaSzQ8DO5QIbWPZuF+VkYVRk6gh-Vg4ECbfuQRQ4pHjWJ5Rmbtkk=/2001269357497/B%2527Lao%2520Trekking%2520-%25202D1N%2520Tour-57ebd985-825d-4164-a882-ab0160ceb51d.jpeg?_src=imagekit&tr=c-at_max,h-512,q-60,w-720 1x, https://ik.imagekit.io/tvlk/xpe-asset/AyJ40ZAo1DOyPyKLZ9c3RGQHTP2oT4ZXW+QmPVVkFQiXFSv42UaHGzSmaSzQ8DO5QIbWPZuF+VkYVRk6gh-Vg4ECbfuQRQ4pHjWJ5Rmbtkk=/2001269357497/B%2527Lao%2520Trekking%2520-%25202D1N%2520Tour-57ebd985-825d-4164-a882-ab0160ceb51d.jpeg?_src=imagekit&tr=dpr-2,c-at_max,h-512,q-60,w-720 2x, https://ik.imagekit.io/tvlk/xpe-asset/AyJ40ZAo1DOyPyKLZ9c3RGQHTP2oT4ZXW+QmPVVkFQiXFSv42UaHGzSmaSzQ8DO5QIbWPZuF+VkYVRk6gh-Vg4ECbfuQRQ4pHjWJ5Rmbtkk=/2001269357497/B%2527Lao%2520Trekking%2520-%25202D1N%2520Tour-57ebd985-825d-4164-a882-ab0160ceb51d.jpeg?_src=imagekit&tr=dpr-3,c-at_max,h-512,q-60,w-720 3x"
@@ -220,7 +219,6 @@ const Detail = () => {
                       <div className="css-1dbjc4n r-bnwqim r-184en5c">
                         <img
                           role="button"
-                          importance="low"
                           loading="lazy"
                           src="https://ik.imagekit.io/tvlk/xpe-asset/AyJ40ZAo1DOyPyKLZ9c3RGQHTP2oT4ZXW+QmPVVkFQiXFSv42UaHGzSmaSzQ8DO5QIbWPZuF+VkYVRk6gh-Vg4ECbfuQRQ4pHjWJ5Rmbtkk=/2001269357497/B%2527Lao%2520Trekking%2520-%25202D1N%2520Tour-20bca5c2-445d-4c20-9288-5f4540ea37dc.jpeg?_src=imagekit&tr=c-at_max,h-122,q-60,w-148"
                           srcSet="https://ik.imagekit.io/tvlk/xpe-asset/AyJ40ZAo1DOyPyKLZ9c3RGQHTP2oT4ZXW+QmPVVkFQiXFSv42UaHGzSmaSzQ8DO5QIbWPZuF+VkYVRk6gh-Vg4ECbfuQRQ4pHjWJ5Rmbtkk=/2001269357497/B%2527Lao%2520Trekking%2520-%25202D1N%2520Tour-20bca5c2-445d-4c20-9288-5f4540ea37dc.jpeg?_src=imagekit&tr=c-at_max,h-122,q-60,w-148 1x, https://ik.imagekit.io/tvlk/xpe-asset/AyJ40ZAo1DOyPyKLZ9c3RGQHTP2oT4ZXW+QmPVVkFQiXFSv42UaHGzSmaSzQ8DO5QIbWPZuF+VkYVRk6gh-Vg4ECbfuQRQ4pHjWJ5Rmbtkk=/2001269357497/B%2527Lao%2520Trekking%2520-%25202D1N%2520Tour-20bca5c2-445d-4c20-9288-5f4540ea37dc.jpeg?_src=imagekit&tr=dpr-2,c-at_max,h-122,q-60,w-148 2x, https://ik.imagekit.io/tvlk/xpe-asset/AyJ40ZAo1DOyPyKLZ9c3RGQHTP2oT4ZXW+QmPVVkFQiXFSv42UaHGzSmaSzQ8DO5QIbWPZuF+VkYVRk6gh-Vg4ECbfuQRQ4pHjWJ5Rmbtkk=/2001269357497/B%2527Lao%2520Trekking%2520-%25202D1N%2520Tour-20bca5c2-445d-4c20-9288-5f4540ea37dc.jpeg?_src=imagekit&tr=dpr-3,c-at_max,h-122,q-60,w-148 3x"
@@ -246,7 +244,6 @@ const Detail = () => {
                       <div className="css-1dbjc4n r-bnwqim r-184en5c">
                         <img
                           role="button"
-                          importance="low"
                           loading="lazy"
                           src="https://ik.imagekit.io/tvlk/xpe-asset/AyJ40ZAo1DOyPyKLZ9c3RGQHTP2oT4ZXW+QmPVVkFQiXFSv42UaHGzSmaSzQ8DO5QIbWPZuF+VkYVRk6gh-Vg4ECbfuQRQ4pHjWJ5Rmbtkk=/2001269357497/B%2527Lao%2520Trekking%2520-%25202D1N%2520Tour-6cc57304-a216-4293-bce7-040456831787.jpeg?_src=imagekit&tr=c-at_max,h-122,q-60,w-148"
                           srcSet="https://ik.imagekit.io/tvlk/xpe-asset/AyJ40ZAo1DOyPyKLZ9c3RGQHTP2oT4ZXW+QmPVVkFQiXFSv42UaHGzSmaSzQ8DO5QIbWPZuF+VkYVRk6gh-Vg4ECbfuQRQ4pHjWJ5Rmbtkk=/2001269357497/B%2527Lao%2520Trekking%2520-%25202D1N%2520Tour-6cc57304-a216-4293-bce7-040456831787.jpeg?_src=imagekit&tr=c-at_max,h-122,q-60,w-148 1x, https://ik.imagekit.io/tvlk/xpe-asset/AyJ40ZAo1DOyPyKLZ9c3RGQHTP2oT4ZXW+QmPVVkFQiXFSv42UaHGzSmaSzQ8DO5QIbWPZuF+VkYVRk6gh-Vg4ECbfuQRQ4pHjWJ5Rmbtkk=/2001269357497/B%2527Lao%2520Trekking%2520-%25202D1N%2520Tour-6cc57304-a216-4293-bce7-040456831787.jpeg?_src=imagekit&tr=dpr-2,c-at_max,h-122,q-60,w-148 2x, https://ik.imagekit.io/tvlk/xpe-asset/AyJ40ZAo1DOyPyKLZ9c3RGQHTP2oT4ZXW+QmPVVkFQiXFSv42UaHGzSmaSzQ8DO5QIbWPZuF+VkYVRk6gh-Vg4ECbfuQRQ4pHjWJ5Rmbtkk=/2001269357497/B%2527Lao%2520Trekking%2520-%25202D1N%2520Tour-6cc57304-a216-4293-bce7-040456831787.jpeg?_src=imagekit&tr=dpr-3,c-at_max,h-122,q-60,w-148 3x"
@@ -272,7 +269,6 @@ const Detail = () => {
                       <div className="css-1dbjc4n r-bnwqim r-184en5c">
                         <img
                           role="button"
-                          importance="low"
                           loading="lazy"
                           src="https://ik.imagekit.io/tvlk/xpe-asset/AyJ40ZAo1DOyPyKLZ9c3RGQHTP2oT4ZXW+QmPVVkFQiXFSv42UaHGzSmaSzQ8DO5QIbWPZuF+VkYVRk6gh-Vg4ECbfuQRQ4pHjWJ5Rmbtkk=/2001269357497/B%2527Lao%2520Trekking%2520-%25202D1N%2520Tour-0950348e-80af-4685-928e-bc422aaf2901.jpeg?_src=imagekit&tr=c-at_max,h-122,q-60,w-148"
                           srcSet="https://ik.imagekit.io/tvlk/xpe-asset/AyJ40ZAo1DOyPyKLZ9c3RGQHTP2oT4ZXW+QmPVVkFQiXFSv42UaHGzSmaSzQ8DO5QIbWPZuF+VkYVRk6gh-Vg4ECbfuQRQ4pHjWJ5Rmbtkk=/2001269357497/B%2527Lao%2520Trekking%2520-%25202D1N%2520Tour-0950348e-80af-4685-928e-bc422aaf2901.jpeg?_src=imagekit&tr=c-at_max,h-122,q-60,w-148 1x, https://ik.imagekit.io/tvlk/xpe-asset/AyJ40ZAo1DOyPyKLZ9c3RGQHTP2oT4ZXW+QmPVVkFQiXFSv42UaHGzSmaSzQ8DO5QIbWPZuF+VkYVRk6gh-Vg4ECbfuQRQ4pHjWJ5Rmbtkk=/2001269357497/B%2527Lao%2520Trekking%2520-%25202D1N%2520Tour-0950348e-80af-4685-928e-bc422aaf2901.jpeg?_src=imagekit&tr=dpr-2,c-at_max,h-122,q-60,w-148 2x, https://ik.imagekit.io/tvlk/xpe-asset/AyJ40ZAo1DOyPyKLZ9c3RGQHTP2oT4ZXW+QmPVVkFQiXFSv42UaHGzSmaSzQ8DO5QIbWPZuF+VkYVRk6gh-Vg4ECbfuQRQ4pHjWJ5Rmbtkk=/2001269357497/B%2527Lao%2520Trekking%2520-%25202D1N%2520Tour-0950348e-80af-4685-928e-bc422aaf2901.jpeg?_src=imagekit&tr=dpr-3,c-at_max,h-122,q-60,w-148 3x"
@@ -486,7 +482,7 @@ const Detail = () => {
                                     }}
                                   />
                                   <img
-                                    alt
+
                                     draggable="false"
                                     src="https://ik.imagekit.io/tvlk/image/imageResource/2021/02/04/1612455491487-083f2aa1250ed2145b0b41c4e1dba240.png"
                                     className="css-9pa8cd"
@@ -553,7 +549,6 @@ const Detail = () => {
                                     }}
                                   />
                                   <img
-                                    alt
                                     draggable="false"
                                     src="https://ik.imagekit.io/tvlk/image/imageResource/2021/02/04/1612455486715-9f445c68bf929b8ace8e744c568484f9.png"
                                     className="css-9pa8cd"
@@ -621,7 +616,6 @@ const Detail = () => {
                                     }}
                                   />
                                   <img
-                                    alt
                                     draggable="false"
                                     src="https://ik.imagekit.io/tvlk/image/imageResource/2021/02/04/1612455479726-cb00253dc0267a8fc369760e81dc577c.png"
                                     className="css-9pa8cd"
@@ -807,7 +801,6 @@ const Detail = () => {
                                     }}
                                   />
                                   <img
-                                    alt
                                     draggable="false"
                                     src="https://ik.imagekit.io/tvlk/image/imageResource/2021/02/04/1612455491487-083f2aa1250ed2145b0b41c4e1dba240.png"
                                     className="css-9pa8cd"
@@ -874,7 +867,6 @@ const Detail = () => {
                                     }}
                                   />
                                   <img
-                                    alt
                                     draggable="false"
                                     src="https://ik.imagekit.io/tvlk/image/imageResource/2021/02/04/1612455486715-9f445c68bf929b8ace8e744c568484f9.png"
                                     className="css-9pa8cd"
@@ -942,7 +934,6 @@ const Detail = () => {
                                     }}
                                   />
                                   <img
-                                    alt
                                     draggable="false"
                                     src="https://ik.imagekit.io/tvlk/image/imageResource/2021/02/04/1612455479726-cb00253dc0267a8fc369760e81dc577c.png"
                                     className="css-9pa8cd"

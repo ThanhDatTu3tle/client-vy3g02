@@ -17,7 +17,6 @@ const ListTour = () => {
               <div className="css-1dbjc4n">
                 <div className="css-1dbjc4n r-kul7p6 r-1udh08x">
                   <img
-                    importance="low"
                     loading="lazy"
                     src="https://ik.imagekit.io/tvlk/image/imageResource/2019/12/04/1575430518767-1fc642d45c0ab4008c1eba72a17a2780.jpeg?tr=h-242,q-75"
                     decoding="async"
@@ -53,7 +52,6 @@ const ListTour = () => {
                               type="text"
                               placeholder="Tìm hoạt động hoặc điểm đến"
                               autoCorrect="off"
-                              defaultValue
                               autoComplete="xperience-autocomplete"
                               aria-invalid="false"
                               autoCapitalize="sentences"

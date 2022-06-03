@@ -1,17 +1,16 @@
 import { FETCHED_FLIGHT } from "../constant/constant";
 
 const initialState = {
-	requirement: [],
+	flight: {},
 };
 
-export const flightReducer = (state = initialState, action: any) => {
+export const flightReducer = (state = initialState, action) => {
 	switch (action.type) {
 		case FETCHED_FLIGHT:
 			return {
 				...state,
-				requirement: [...state.requirement, action.payload],
+				flight: action.payload,
 			};
-
 		default:
 			return { ...state };
 	}

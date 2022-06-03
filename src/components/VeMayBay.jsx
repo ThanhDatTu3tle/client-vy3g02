@@ -1,19 +1,10 @@
+import * as React from "react";
 import { useState, useRef } from "react";
 import axiosMethod from "../utils/api-client";
+import { Redirect, useSearchParams } from "react-router-dom";
+import globalStateAndAction from "../container/global.state.action.js";
 
 const VeMayBay = (props) => {
-  const { onSubmit } = props;
-
-  const setFlight = ({setFlight})
-
-  const typingTimeoutRef = useRef(null);
-
-  const [air, setAir] = useState({
-    from: null,
-    to: null,
-    hangghe: null,
-    date: null,
-  });
 
   const [showPopper, setShowPopper] = useState(false);
 
@@ -22,27 +13,6 @@ const VeMayBay = (props) => {
     treem: 0,
     embe: 0,
   });
-
-  const handleChangeAir = (e) => {
-    const value = e.target.value;
-
-    setAir({
-      ...air,
-      from: value,
-    });
-
-    if (!onSubmit) return;
-    if (typingTimeoutRef.current) {
-      clearTimeout(typingTimeoutRef.current);
-    };
-
-    typingTimeoutRef.current = setTimeout(() => {
-      const formValues = {
-        air: value,
-      };
-      onSubmit(formValues);
-    }, 300);
-  };
 
   const handleShowPopper = () => {
     setShowPopper(!showPopper);
@@ -62,10 +32,32 @@ const VeMayBay = (props) => {
     });
   };
 
+  const [air, setAir] = useState({
+    from: String,
+    to: String,
+    hangghe: String,
+    date: String,
+  });
+
+  const [destination, setDestination] = useState('');
+
+  const [takeOffDay, setTakeOffDay] = useState('');
+
+  const handleChangeAir = (e) => {
+    const value = e.target.value;
+
+    setAir({
+      ...air,
+      from: value,
+    })
+  };
+
+  const [searchInput, setSearchInput] = useState("");
+
   const sendQuery = async () => {
 
-		const data = fetch(`http://139.59.225.244:3001/flight?ngayCatCanh=25%20thg%205`);
-    setFlight(data);
+		const data = fetch (`http://139.59.225.244:3001/flight/`);
+    return data;
 	};
 
   return (
@@ -137,6 +129,7 @@ const VeMayBay = (props) => {
               </div>
               <div className="_3wLs8">
                 <div className="_2XrTn">
+                  {/* Điểm khỏi hành */}
                   <div
                     className="_2tXgG"
                     style={{
@@ -176,11 +169,11 @@ const VeMayBay = (props) => {
                                 fontSize: "16px",
                                 fontWeight: "lighter",
                               }}
-                              value={air.from}
-                              onChange={(e) => handleChangeAir(e)}
+                              value={searchInput}
+                              onChange={(e) => setSearchInput(e.target.value)}
                             >
-                              <option value="dn">Đà Nẵng (DAD)</option>
                               <option value="hcm">TP HCM (SGN)</option>
+                              <option value="dn">Đà Nẵng (DAD)</option>
                               <option value="hn">Hà Nội (HAN)</option>
                             </select>
                           </div>
@@ -190,6 +183,7 @@ const VeMayBay = (props) => {
                       </div>
                     </div>
                   </div>
+                  {/* Điểm đến */}
                   <div
                     className="_2tXgG"
                     style={{
@@ -225,8 +219,8 @@ const VeMayBay = (props) => {
                                 fontSize: "16px",
                                 fontWeight: "lighter",
                               }}
-                              value={air.to}
-                              onChange={(e) => handleChangeAir(e, "to")}
+                              value={searchInput}
+                              onChange={(e) => setSearchInput(e.target.value)}
                             >
                               <option value="dn">Đà Nẵng (DAD)</option>
                               <option value="hcm">TP HCM (SGN)</option>
@@ -238,6 +232,7 @@ const VeMayBay = (props) => {
                       </div>
                     </div>
                   </div>
+                  {/* Số hành khách */}
                   <div
                     className="_2sGWJ"
                     style={{
@@ -621,7 +616,9 @@ const VeMayBay = (props) => {
                     </div>
                   </div>
                 </div>
+
                 <div className="_2XrTn">
+                  {/* Ngày đi */}
                   <div
                     className="_2tXgG"
                     style={{
@@ -651,7 +648,7 @@ const VeMayBay = (props) => {
                             <input
                               className="K07a_"
                               value={air.date}
-                              onChange={(e) => handleChangeAir(e, "date")}
+                              onChange={() => setTakeOffDay(takeOffDay)}
                             />
                           </div>
                         </label>
@@ -659,6 +656,7 @@ const VeMayBay = (props) => {
                       </span>
                     </div>
                   </div>
+                  {/* Ngày về */}
                   <div
                     className="_2tXgG"
                     style={{
@@ -688,7 +686,7 @@ const VeMayBay = (props) => {
                             <input
                               className="K07a_"
                               value={air.date}
-                              onChange={(e) => handleChangeAir(e, "date")}
+                              onChange={(e) => handleChangeAir(e)}
                             />
                           </div>
                         </label>
@@ -696,6 +694,7 @@ const VeMayBay = (props) => {
                       </span>
                     </div>
                   </div>
+                  {/* Hạng ghế */}
                   <div
                     className="_2sGWJ"
                     style={{
@@ -742,7 +741,7 @@ const VeMayBay = (props) => {
                                 fontWeight: "lighter",
                               }}
                               value={air.hangghe}
-                              onChange={(e) => handleChangeAir(e, "hangghe")}
+                              onChange={(e) => handleChangeAir(e)}
                             >
                               <option value="phothong">Phổ thông</option>
                               <option value="thuonggia">Thương gia</option>
@@ -755,6 +754,7 @@ const VeMayBay = (props) => {
                   </div>
                 </div>
               </div>
+              {/* BUTTON TÌM CHUYẾN BAY */}
               <div className="IwltO">
                 <button className="_3-JID _22K0g gLbQ- _90_75" type="button" onClick={sendQuery}>
                   <div className="afC62 _3pjEu">
@@ -784,4 +784,4 @@ const VeMayBay = (props) => {
   );
 };
 
-export default VeMayBay;
+export default globalStateAndAction(VeMayBay);

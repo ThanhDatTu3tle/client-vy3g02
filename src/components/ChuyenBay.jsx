@@ -27,22 +27,18 @@ class ChuyenBay extends Component {
       <div>
         <div>
         {
-          
-           
-            <div key={flight.maChuyenBay}>
-              <div className="card d_flex">
-                <div className="left">
-                  <div className="title">
-                    {flight.noiDi} → {flight.noiDen}
-                  </div>
-                  <p className="date">
-                    T6, 06 Thg 05 2022 | {flight.loaiVe}
-                  </p>
+          <div key={flight.maChuyenBay}>
+            <div className="card d_flex">
+              <div className="left">
+                <div className="title">
+                  {flight.noiDi} → {flight.noiDen}
                 </div>
-              </div>              
-            </div>
-          
-          
+                <p className="date">
+                  T6, 06 Thg 05 2022 | {flight.loaiVe}
+                </p>
+              </div>
+            </div>              
+          </div>
         } 
         </div>
       </div>

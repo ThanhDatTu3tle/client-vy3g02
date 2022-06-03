@@ -1,6 +1,6 @@
 import { FETCHED_FLIGHT } from "../constant/constant";
 
-const setFlight = (data: any) => ({
+const setFlight = (data) => ({
 	type: FETCHED_FLIGHT,
 	payload: data,
 });
