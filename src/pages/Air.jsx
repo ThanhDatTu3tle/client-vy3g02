@@ -73,7 +73,6 @@ const Air = () => {
                         data-id={1561975514220}
                         style={{ marginTop: 162 }}
                       >
-                        <h2>Tiện ích Hãng bay</h2>
                         <div
                           className="mcp-placeholder-inner"
                           data-name="facilities"
