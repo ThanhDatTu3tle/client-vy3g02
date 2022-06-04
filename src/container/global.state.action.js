@@ -4,7 +4,7 @@ import { setFlight } from "../actions/flight.action";
 export default function globalStateAndAction(name) {
 	const mapStateToProps = (state) => {
 		return {
-			flight	: state.flight.apartment,
+			flight: state.flight.apartment,
 		};
 	};
 

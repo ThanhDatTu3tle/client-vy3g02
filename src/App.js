@@ -9,15 +9,15 @@ function App() {
 	return (
 		<BrowserRouter>
 			{
-				<Route 
+				<Route
 					render = {() => (
 						<div>
 							<Header />
 							<Routes />
 							<Footer />
 						</div>
-					)}
-				/>
+					)}>
+				</Route>
 			}
 		</BrowserRouter>
 	)

@@ -1,7 +1,6 @@
 import * as React from "react";
 import { useState, useRef } from "react";
 import axiosMethod from "../utils/api-client";
-import { Redirect, useSearchParams } from "react-router-dom";
 import globalStateAndAction from "../container/global.state.action.js";
 import { AdapterDateFns } from '@mui/x-date-pickers/AdapterDateFns';
 import { LocalizationProvider } from '@mui/x-date-pickers/LocalizationProvider';
@@ -10,11 +9,17 @@ import Stack from '@mui/material/Stack';
 import TextField from '@mui/material/TextField';
 
 const VeMayBay = (props) => {
+  let day = new Date();
+  const [value, setValue] = React.useState(new Date(`${day}`));
+
+  const handleChange = (newValue) => {
+    setValue(newValue);
+  };
 
   const [showPopper, setShowPopper] = useState(false);
 
   const [quantity, setQuantity] = useState({
-    nguoilon: 0,
+    nguoilon: 2,
     treem: 0,
     embe: 0,
   });
@@ -44,24 +49,38 @@ const VeMayBay = (props) => {
     date: String,
   });
 
-  const [destination, setDestination] = useState('');
-
-  const [takeOffDay, setTakeOffDay] = useState('');
-
   const handleChangeAir = (e) => {
     const value = e.target.value;
 
     setAir({
       ...air,
       from: value,
+      to: value,
     })
   };
 
-  const [searchInput, setSearchInput] = useState("");
+  const [departureInput, setDepartureInput] = useState("");
+
+  // const handleDeparture = (e) => {
+  //   const value = e.target.value;
+
+  //   setDepartureInput({
+  //     e: value,
+  //   });
+  // };
+
+  const [destinationInput, setDestinationInput] = useState("");
+
+  // const handleDestination = (e) => {
+  //   const value = e.target.value;
+
+  //   setDestinationInput({
+  //     e: value,
+  //   });
+  // };
 
   const sendQuery = async () => {
-
-		const data = fetch (`http://139.59.225.244:3001/flight/`);
+		const data = await axiosMethod(`details?${destinationInput}`, "get");
     return data;
 	};
 
@@ -95,7 +114,7 @@ const VeMayBay = (props) => {
                       <div className="_1sBVI" />
                       <div className="_35qnS">
                         <span className="_1KrnW _1EnnQ _2i_vU _1dKIX">
-                          Một chiều / Khứ hồi
+                          Một chiều
                         </span>
                       </div>
                     </label>
@@ -139,7 +158,6 @@ const VeMayBay = (props) => {
                     className="_2tXgG"
                     style={{
                       position: "relative",
-
                     }}
                   >
                     <div>
@@ -156,7 +174,6 @@ const VeMayBay = (props) => {
                         className="p6vKa"
                         style={{
                           position: "relative",
-                          
                         }}
                       >
                         <label className="_3kQG9">Điểm khởi hành</label>
@@ -174,17 +191,16 @@ const VeMayBay = (props) => {
                                 fontSize: "16px",
                                 fontWeight: "lighter",
                               }}
-                              value={searchInput}
-                              onChange={(e) => setSearchInput(e.target.value)}
+                              value={departureInput}
+                              onChange={(e) => setDepartureInput(e.target.value)}
                             >
-                              <option value="hcm">TP HCM (SGN)</option>
-                              <option value="dn">Đà Nẵng (DAD)</option>
-                              <option value="hn">Hà Nội (HAN)</option>
+                              <option value="hcm">TP HCM</option>
+                              <option value="dn">Đà Nẵng</option>
+                              <option value="hn">Hà Nội</option>
                             </select>
                           </div>
                         </label>
                         <div />
-                        
                       </div>
                     </div>
                   </div>
@@ -224,12 +240,12 @@ const VeMayBay = (props) => {
                                 fontSize: "16px",
                                 fontWeight: "lighter",
                               }}
-                              value={searchInput}
-                              onChange={(e) => setSearchInput(e.target.value)}
+                              value={destinationInput}
+                              onChange={(e) => setDestinationInput(e.target.value)}
                             >
-                              <option value="dn">Đà Nẵng (DAD)</option>
-                              <option value="hcm">TP HCM (SGN)</option>
-                              <option value="hn">Hà Nội (HAN)</option>
+                              <option value="dn">Đà Nẵng</option>
+                              <option value="hcm">TP HCM</option>
+                              <option value="hn">Hà Nội</option>
                             </select>
                           </div>
                         </label>
@@ -630,39 +646,18 @@ const VeMayBay = (props) => {
                       position: "relative",
                     }}
                   >
-                    <div className="p6vKa" style={{marginTop: "25px"}}>
+                    <div className="p6vKa">
+                      <label className="_3kQG9">Ngày đi</label>
                       <LocalizationProvider dateAdapter={AdapterDateFns}>
                         <Stack spacing={3}>
                           <DesktopDatePicker
-                            label="Ngày đi"
-                            inputFormat="MM/dd/yyyy"
-                            // value={value}
-                            // onChange={handleChange}
+                            inputFormat="dd/MM/yyyy"
+                            value={value}
+                            onChange={handleChange}
                             renderInput={(params) => <TextField {...params} />}
                           />
                         </Stack>
                       </LocalizationProvider>
-                    </div>
-                  </div>
-                  {/* Ngày về */}
-                  <div
-                    className="_2tXgG"
-                    style={{
-                      position: "relative",
-                    }}
-                  >
-                    <div className="p6vKa" style={{marginTop: "25px"}}>
-                      <LocalizationProvider dateAdapter={AdapterDateFns}>
-                          <Stack spacing={3}>
-                            <DesktopDatePicker
-                              label="Ngày về"
-                              inputFormat="MM/dd/yyyy"
-                              // value={value}
-                              // onChange={handleChange}
-                              renderInput={(params) => <TextField {...params} />}
-                            />
-                          </Stack>
-                        </LocalizationProvider>
                     </div>
                   </div>
                   {/* Hạng ghế */}
