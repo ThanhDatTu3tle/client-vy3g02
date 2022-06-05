@@ -1,5 +1,5 @@
 import * as React from "react";
-import { useState, useRef } from "react";
+import { useState, useRef, useEffect } from "react";
 import axiosMethod from "../utils/api-client";
 import globalStateAndAction from "../container/global.state.action.js";
 import { AdapterDateFns } from '@mui/x-date-pickers/AdapterDateFns';
@@ -11,7 +11,6 @@ import TextField from '@mui/material/TextField';
 const VeMayBay = (props) => {
   let day = new Date();
   const [value, setValue] = React.useState(new Date(`${day}`));
-
   const handleChange = (newValue) => {
     setValue(newValue);
   };
@@ -71,17 +70,19 @@ const VeMayBay = (props) => {
 
   const [destinationInput, setDestinationInput] = useState("");
 
-  // const handleDestination = (e) => {
-  //   const value = e.target.value;
+  const handleDestination = (e) => {
+    const value = e.target.value;
 
-  //   setDestinationInput({
-  //     e: value,
-  //   });
-  // };
+    setDepartureInput({
+      e: value,
+    });
+  };
 
   const sendQuery = async () => {
-		const data = await axiosMethod(`details?${destinationInput}`, "get");
-    return data;
+		const data = fetch(`http://139.59.225.244:3001/flight/details?`);
+    const params = new URLSearchParams(data.search);
+    
+    return params.append('ngayCatCanh', destinationInput);
 	};
 
   return (
@@ -649,7 +650,7 @@ const VeMayBay = (props) => {
                     <div className="p6vKa">
                       <label className="_3kQG9">Ngày đi</label>
                       <LocalizationProvider dateAdapter={AdapterDateFns}>
-                        <Stack spacing={3}>
+                        <Stack spacing={2}>
                           <DesktopDatePicker
                             inputFormat="dd/MM/yyyy"
                             value={value}
