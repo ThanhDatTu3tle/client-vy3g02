@@ -7,13 +7,35 @@ import { LocalizationProvider } from '@mui/x-date-pickers/LocalizationProvider';
 import { DesktopDatePicker } from '@mui/x-date-pickers/DesktopDatePicker';
 import Stack from '@mui/material/Stack';
 import TextField from '@mui/material/TextField';
+import { useSearchParams } from "react-router-dom";
+import { setFlight } from "../actions/flight.action";
 
 const VeMayBay = (props) => {
-  let day = new Date();
-  const [value, setValue] = React.useState(new Date(`${day}`));
-  const handleChange = (newValue) => {
-    setValue(newValue);
+
+  const [dayValue, setDayValue] = useState(() => {
+    let takeDay = new Date();
+    let day = takeDay.getUTCDate();
+    let month = takeDay.getUTCMonth() + 1;
+    let year = takeDay.getUTCFullYear();
+
+    let prefixDay = 0;
+    if(day > 9) {
+      prefixDay = '';
+    }
+    let prefixMonth = 0;
+    if(month > 9) {
+      prefixMonth = '';
+    }
+  
+    const initialDate = `${prefixDay}${day}-${prefixMonth}${month}-${year}`;
+    return initialDate;
+  }); 
+
+  const handleChange = (dayValue) => {
+    setDayValue(dayValue);
   };
+
+  // let [searchParams, setSearchParams] = useSearchParams();
 
   const [showPopper, setShowPopper] = useState(false);
 
@@ -44,8 +66,6 @@ const VeMayBay = (props) => {
   const [air, setAir] = useState({
     from: String,
     to: String,
-    hangghe: String,
-    date: String,
   });
 
   const handleChangeAir = (e) => {
@@ -58,31 +78,28 @@ const VeMayBay = (props) => {
     })
   };
 
-  const [departureInput, setDepartureInput] = useState("");
+  const [departureInput, setDepartureInput] = useState("HCM");
 
-  // const handleDeparture = (e) => {
-  //   const value = e.target.value;
+  const [destinationInput, setDestinationInput] = useState("DAD");
 
-  //   setDepartureInput({
-  //     e: value,
-  //   });
-  // };
+  const sendQuery = () => {
 
-  const [destinationInput, setDestinationInput] = useState("");
+    let day = dayValue.getUTCDate() + 1;
+    let month = dayValue.getUTCMonth() + 1;
+    let year = dayValue.getUTCFullYear();
+    let prefixDay = 0;
+    if(day > 9) {
+      prefixDay = '';
+    }
+    let prefixMonth = 0;
+    if(month > 9) {
+      prefixMonth = '';
+    }
+  
+    let initialDate = `${prefixDay}${day}-${prefixMonth}${month}-${year}`;
 
-  const handleDestination = (e) => {
-    const value = e.target.value;
-
-    setDepartureInput({
-      e: value,
-    });
-  };
-
-  const sendQuery = async () => {
-		const data = fetch(`http://139.59.225.244:3001/flight/details?`);
-    const params = new URLSearchParams(data.search);
-    
-    return params.append('ngayCatCanh', destinationInput);
+    const data = fetch(`http://139.59.225.244:3001/flight/details?ngayCatCanh=${initialDate}&maNoiDi=${departureInput}&maNoiDen=${destinationInput}`);
+    return data;
 	};
 
   return (
@@ -195,9 +212,9 @@ const VeMayBay = (props) => {
                               value={departureInput}
                               onChange={(e) => setDepartureInput(e.target.value)}
                             >
-                              <option value="hcm">TP HCM</option>
-                              <option value="dn">Đà Nẵng</option>
-                              <option value="hn">Hà Nội</option>
+                              <option value="HCM">TP HCM</option>
+                              <option value="DAD">Đà Nẵng</option>
+                              <option value="HAN">Hà Nội</option>
                             </select>
                           </div>
                         </label>
@@ -244,9 +261,9 @@ const VeMayBay = (props) => {
                               value={destinationInput}
                               onChange={(e) => setDestinationInput(e.target.value)}
                             >
-                              <option value="dn">Đà Nẵng</option>
-                              <option value="hcm">TP HCM</option>
-                              <option value="hn">Hà Nội</option>
+                              <option value="DAD">Đà Nẵng</option>
+                              <option value="HCM">TP HCM</option>
+                              <option value="HAN">Hà Nội</option>
                             </select>
                           </div>
                         </label>
@@ -650,14 +667,12 @@ const VeMayBay = (props) => {
                     <div className="p6vKa">
                       <label className="_3kQG9">Ngày đi</label>
                       <LocalizationProvider dateAdapter={AdapterDateFns}>
-                        <Stack spacing={2}>
-                          <DesktopDatePicker
-                            inputFormat="dd/MM/yyyy"
-                            value={value}
-                            onChange={handleChange}
-                            renderInput={(params) => <TextField {...params} />}
-                          />
-                        </Stack>
+                        <DesktopDatePicker
+                          inputFormat="dd-MM-yyyy"
+                          value={dayValue}
+                          onChange={handleChange}
+                          renderInput={(params) => <TextField {...params} />}
+                        />
                       </LocalizationProvider>
                     </div>
                   </div>

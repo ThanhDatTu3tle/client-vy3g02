@@ -2,7 +2,6 @@ import VeMayBay from "../components/VeMayBay";
 import { useState } from "react";
 
 const Air = () => {
-
   const renderTab = () => {
     return <VeMayBay />;
   };

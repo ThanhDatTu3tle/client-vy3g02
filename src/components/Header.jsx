@@ -374,7 +374,7 @@ const Header = () => {
                     dir="auto"
                     className="css-901oao r-cwxd7f r-1sixt3s r-ubezar r-majxgm r-135wba7 r-fdjqy7"
                   >
-                    <a href="/air">Vé Máy Bay</a>
+                    <a href="/">Đặt Vé Máy Bay</a>
                   </div>
                   <img
                     importance="low"
@@ -419,7 +419,7 @@ const Header = () => {
                     dir="auto"
                     className="css-901oao r-cwxd7f r-1sixt3s r-ubezar r-majxgm r-135wba7 r-fdjqy7"
                   >
-                    Chỗ ở
+                    <a href="/detail-air">Vé Máy Bay</a>
                   </div>
                   <img
                     importance="low"

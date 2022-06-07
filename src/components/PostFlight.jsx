@@ -1,13 +1,15 @@
 import React, { Component } from 'react';
 import { useState, useEffect } from "react";
+import VeMayBay from './VeMayBay';
 
 const PostFlight = () => {
 
   const [flight, setFlight] = useState([]);
+  const veMayBay = VeMayBay;
 
   useEffect(() => {
     let mounted = true;
-    fetch(`http://139.59.225.244:3001/flight?ngayCatCanh=25%20thg%205&noiDen=%C4%90%C3%A0%20N%E1%BA%B5ng`)
+    fetch(`http://139.59.225.244:3001/flight/details?ngayCatCanh=07-06-2022&maNoiDi=DAD&maNoiDen=HAN`)
       .then(response => response.json())
       .then(items => {
         if(mounted) {
