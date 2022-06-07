@@ -677,15 +677,6 @@ const Footer = () => {
                 </li>
                 <li className="css-4rbku5 r-6gpygo">
                   <a
-                    href="/vi-vn/hotel"
-                    id="hotel-search"
-                    className="css-4rbku5 r-1awozwy r-nk2qpz r-xoduu5 r-1sixt3s r-1b43r93 r-majxgm r-rjixqe r-nzoivv"
-                  >
-                    Khách sạn
-                  </a>
-                </li>
-                <li className="css-4rbku5 r-6gpygo">
-                  <a
                     href="/vi-vn/train/japan.jp"
                     id="train-global-search"
                     className="css-4rbku5 r-1awozwy r-nk2qpz r-xoduu5 r-1sixt3s r-1b43r93 r-majxgm r-rjixqe r-nzoivv"

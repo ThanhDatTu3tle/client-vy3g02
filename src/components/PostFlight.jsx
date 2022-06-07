@@ -6,10 +6,15 @@ const PostFlight = () => {
 
   const [flight, setFlight] = useState([]);
   const veMayBay = VeMayBay;
+  // const initialDate = veMayBay.initialDate;
+  // const departureInput = veMayBay.departureInput;
+  // const destinationInput = veMayBay.destinationInput;
+  // const apiSearch = veMayBay.sendQuery();
 
   useEffect(() => {
     let mounted = true;
-    fetch(`http://139.59.225.244:3001/flight/details?ngayCatCanh=07-06-2022&maNoiDi=DAD&maNoiDen=HAN`)
+    const apiUrl = sessionStorage.getItem('url');
+    fetch(`${apiUrl}`)
       .then(response => response.json())
       .then(items => {
         if(mounted) {
