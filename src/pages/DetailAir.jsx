@@ -67,7 +67,6 @@ const DetailAir = () => {
 
                       <div className="body">
                         <br />
-                        <ChuyenBay />
                         {/* loc */}
                         <PostFlight />
                         

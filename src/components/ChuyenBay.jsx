@@ -28,22 +28,18 @@ const ChuyenBay = () => {
     <div>
       <div>
       {
-        flight.length ?
-        flight.map(item => 
-          <div key={item.maChuyenBay}>
-            <div className="card d_flex">
-              <div className="left">  
-                <div className="title">
-                  {item.noiDi} → {item.noiDen}
-                </div>
-                <p className="date">
-                  {item.ngayCatCanh} | {item.loaiVe}
-                </p>
+        <div key={flight.maChuyenBay}>
+          <div className="card d_flex">
+            <div className="left">  
+              <div className="title">
+                {flight.noiDi} → {flight.noiDen}
               </div>
-            </div>              
-          </div>
-        ) :
-        null
+              <p className="date">
+                {flight.ngayCatCanh} | {flight.loaiVe}
+              </p>
+            </div>
+          </div>              
+        </div>
       } 
       </div>
     </div>
