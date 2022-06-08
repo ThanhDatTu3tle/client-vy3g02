@@ -1,7 +1,5 @@
-import { useState } from "react";
 import PostFlight from "../components/PostFlight";
 import ChuyenBay from "../components/ChuyenBay";
-import VeMayBay from "../components/VeMayBay";
 
 const DetailAir = () => {
   return (
@@ -67,9 +65,9 @@ const DetailAir = () => {
 
                       <div className="body">
                         <br />
+                        <ChuyenBay />
                         {/* loc */}
                         <PostFlight />
-                        
                       </div>
 
                       {/* vggvgv */}

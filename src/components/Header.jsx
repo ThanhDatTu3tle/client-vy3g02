@@ -1,5 +1,3 @@
-import { Link } from "react-router-dom";
-
 const Header = () => {
   return (
     <div
@@ -419,7 +417,7 @@ const Header = () => {
                     dir="auto"
                     className="css-901oao r-cwxd7f r-1sixt3s r-ubezar r-majxgm r-135wba7 r-fdjqy7"
                   >
-                    <a href="/detail-air">Vé Máy Bay</a>
+                    <a href={`${sessionStorage.shortUrl}`}>Các Chuyến Bay</a>
                   </div>
                   <img
                     importance="low"

@@ -1,15 +1,9 @@
 import React, { Component } from 'react';
-import axios from 'axios';
 import { useState, useEffect } from "react";
-import VeMayBay from './VeMayBay';
 
 const ChuyenBay = () => {
+
   const [flight, setFlight] = useState([]);
-  const veMayBay = VeMayBay;
-  // const initialDate = veMayBay.initialDate;
-  // const departureInput = veMayBay.departureInput;
-  // const destinationInput = veMayBay.destinationInput;
-  // const apiSearch = veMayBay.sendQuery();
 
   useEffect(() => {
     let mounted = true;
@@ -28,18 +22,22 @@ const ChuyenBay = () => {
     <div>
       <div>
       {
-        <div key={flight.maChuyenBay}>
-          <div className="card d_flex">
-            <div className="left">  
-              <div className="title">
-                {flight.noiDi} → {flight.noiDen}
+        flight.length ?
+        flight.map(item =>
+          <div key={item.maChuyenBay}>
+            <div className="card d_flex">
+              <div className="left">  
+                <div className="title">
+                  {item.noiDi} → {item.noiDen}
+                </div>
+                <p className="date">
+                  {item.ngayCatCanh} | {sessionStorage.getItem('nguoiLon')} Người Lớn, {sessionStorage.getItem('treEm')} Trẻ Em, {sessionStorage.getItem('emBe')} Em Bé  | {item.loaiVe}
+                </p>
               </div>
-              <p className="date">
-                {flight.ngayCatCanh} | {flight.loaiVe}
-              </p>
-            </div>
-          </div>              
-        </div>
+            </div>              
+          </div>
+        )[0] :
+        null
       } 
       </div>
     </div>

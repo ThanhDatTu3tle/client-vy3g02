@@ -1,14 +1,10 @@
 import * as React from "react";
-import { useState, useRef, useEffect } from "react";
-import axiosMethod from "../utils/api-client";
+import { useState } from "react";
 import globalStateAndAction from "../container/global.state.action.js";
 import { AdapterDateFns } from '@mui/x-date-pickers/AdapterDateFns';
 import { LocalizationProvider } from '@mui/x-date-pickers/LocalizationProvider';
 import { DesktopDatePicker } from '@mui/x-date-pickers/DesktopDatePicker';
-import Stack from '@mui/material/Stack';
 import TextField from '@mui/material/TextField';
-import { useSearchParams } from "react-router-dom";
-import { setFlight } from "../actions/flight.action";
 
 const VeMayBay = (props) => {
 
@@ -35,8 +31,6 @@ const VeMayBay = (props) => {
     setDayValue(dayValue);
   };
 
-  // let [searchParams, setSearchParams] = useSearchParams();
-
   const [showPopper, setShowPopper] = useState(false);
 
   const [quantity, setQuantity] = useState({
@@ -59,30 +53,17 @@ const VeMayBay = (props) => {
   const handleInCrement = (type) => {
     setQuantity({
       ...quantity,
-      [type]: quantity[type] + 1,
+      [type]: quantity[type] < 7 ? quantity[type] + 1 : 7 || 0,
     });
   };
 
-  const [air, setAir] = useState({
-    from: String,
-    to: String,
-  });
+  const [departureInput, setDepartureInput] = useState("INIT");
 
-  const handleChangeAir = (e) => {
-    const value = e.target.value;
+  const [destinationInput, setDestinationInput] = useState("INIT");
 
-    setAir({
-      ...air,
-      from: value,
-      to: value,
-    })
-  };
+  const [typeOfTicket, setTypeOfTicket] = useState("PT");
 
-  const [departureInput, setDepartureInput] = useState("HCM");
-
-  const [destinationInput, setDestinationInput] = useState("DAD");
-
-  const sendQuery = async () => {
+  const sendQuery = () => {
 
     let day = dayValue.getUTCDate() + 1;
     let month = dayValue.getUTCMonth() + 1;
@@ -98,9 +79,16 @@ const VeMayBay = (props) => {
   
     let initialDate = `${prefixDay}${day}-${prefixMonth}${month}-${year}`;
 
-    const data = fetch(`http://139.59.225.244:3001/flight/details?ngayCatCanh=${initialDate}&maNoiDi=${departureInput}&maNoiDen=${destinationInput}`);
-    
-    sessionStorage.url = `http://139.59.225.244:3001/flight/details?ngayCatCanh=${initialDate}&maNoiDi=${departureInput}&maNoiDen=${destinationInput}`; 
+    fetch(`http://139.59.225.244:3001/flight/details?ngayCatCanh=${initialDate}&maNoiDi=${departureInput}&maNoiDen=${destinationInput}&soHanhKhach=${quantity.nguoilon}.${quantity.treem}.${quantity.embe}&maLoaiVe=${typeOfTicket}`);
+
+    sessionStorage.url = `http://139.59.225.244:3001/flight/details?ngayCatCanh=${initialDate}&maNoiDi=${departureInput}&maNoiDen=${destinationInput}&soHanhKhach=${quantity.nguoilon}.${quantity.treem}.${quantity.embe}&maLoaiVe=${typeOfTicket}`;
+    sessionStorage.shortUrl = `ngayCatCanh=${initialDate}&maNoiDi=${departureInput}&maNoiDen=${destinationInput}&soHanhKhach=${quantity.nguoilon}.${quantity.treem}.${quantity.embe}&maLoaiVe=${typeOfTicket}`;
+    sessionStorage.nguoiLon = `${quantity.nguoilon}`;
+    sessionStorage.treEm = `${quantity.treem}`;
+    sessionStorage.emBe = `${quantity.embe}`;
+
+    window.location.reload();
+    window.location.pathname = `${sessionStorage.shortUrl}`;
 	};
 
   return (
@@ -213,6 +201,7 @@ const VeMayBay = (props) => {
                               value={departureInput}
                               onChange={(e) => setDepartureInput(e.target.value)}
                             >
+                              <option value="INIT">Mời chọn nơi đi</option>
                               <option value="HCM">TP HCM</option>
                               <option value="DAD">Đà Nẵng</option>
                               <option value="HAN">Hà Nội</option>
@@ -262,6 +251,7 @@ const VeMayBay = (props) => {
                               value={destinationInput}
                               onChange={(e) => setDestinationInput(e.target.value)}
                             >
+                              <option value="INIT">Mời chọn nơi đến</option>
                               <option value="DAD">Đà Nẵng</option>
                               <option value="HCM">TP HCM</option>
                               <option value="HAN">Hà Nội</option>
@@ -295,6 +285,8 @@ const VeMayBay = (props) => {
                           htmlFor="9cd75a323864"
                           className="_3AxLJ"
                           onClick={handleShowPopper}
+                          value={quantity}
+                          onChange={(e) => setQuantity(e.target.value)}
                         >
                           <i className="_1NPyI">
                             <svg
@@ -723,11 +715,11 @@ const VeMayBay = (props) => {
                                 fontSize: "16px",
                                 fontWeight: "lighter",
                               }}
-                              value={air.hangghe}
-                              onChange={(e) => handleChangeAir(e)}
+                              value={typeOfTicket}
+                              onChange={(e) => setTypeOfTicket(e.target.value)}
                             >
-                              <option value="phothong">Phổ thông</option>
-                              <option value="thuonggia">Thương gia</option>
+                              <option value="PT">Phổ thông</option>
+                              <option value="TG">Thương gia</option>
                             </select>
                           </div>
                         </label>
@@ -739,7 +731,7 @@ const VeMayBay = (props) => {
               </div>
               {/* BUTTON TÌM CHUYẾN BAY */}
               <div className="IwltO">
-                <a href='http://localhost:3000/detail-air'>
+                <div>
                   <button className="_3-JID _22K0g gLbQ- _90_75" type="button" onClick={sendQuery}>
                     <div className="afC62 _3pjEu">
                       <svg
@@ -758,7 +750,7 @@ const VeMayBay = (props) => {
                     </div>
                     Tìm chuyến bay
                   </button>
-                </a>
+                </div>          
               </div>
             </div>
           </div>

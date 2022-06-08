@@ -1,15 +1,9 @@
-import React, { Component } from 'react';
+import React from 'react';
 import { useState, useEffect } from "react";
-import VeMayBay from './VeMayBay';
 
 const PostFlight = () => {
 
   const [flight, setFlight] = useState([]);
-  const veMayBay = VeMayBay;
-  // const initialDate = veMayBay.initialDate;
-  // const departureInput = veMayBay.departureInput;
-  // const destinationInput = veMayBay.destinationInput;
-  // const apiSearch = veMayBay.sendQuery();
 
   useEffect(() => {
     let mounted = true;
@@ -161,7 +155,7 @@ const PostFlight = () => {
                     className="css-901oao r-1sixt3s r-adyw6z r-b88u0q r-rjixqe r-fdjqy7"
                     style={{ color: "rgb(255, 94, 31)" }}
                   >
-                    {item.donGia} VND
+                    {(item.donGia).toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".")} VND
                   </div>
                   <div
                     dir="auto"
@@ -204,7 +198,7 @@ const PostFlight = () => {
                 </div>
               </div>
             </div>
-            {/* CHI TIET CHUYEN BAY*/}
+            {/* CHI TIET CHUYEN BAY */}
             <div
               className="css-1dbjc4n r-2o02ov"
               style={{ marginTop: "20px" }}
@@ -223,6 +217,7 @@ const PostFlight = () => {
                 >
                   Chi tiết chuyến bay
                 </div>
+                
                 {/* mổnng */}
                 <div className="css-1dbjc4n r-1ielgck r-1ivxbpt r-1i1ao36" style={{ padding: "20px" }}>
                   <div className="css-1dbjc4n r-1ielgck r-otx420 r-1i1ao36">
@@ -552,6 +547,210 @@ const PostFlight = () => {
                                 }}
                               >
                                 Sân bay {item.noiDen}
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            {/* CHI TIET VE */}
+            <div
+              className="css-1dbjc4n r-2o02ov"
+              style={{ marginTop: "20px" }}
+            >
+              <div
+                className="css-1dbjc4n r-kdyh1x r-da5iq2 r-19i43ro r-1udh08x r-k8qxaj r-1guathk r-417010"
+                style={{
+                  backgroundColor: "white",
+                  border: "1px solid white",
+                  margin: "0 0 20px 0",
+                }}
+              >
+                <div
+                  dir="auto"
+                  style={{ color: "#179df3" }}
+                >
+                  Chi tiết vé 
+                </div>
+                
+                {/* mổnng */}
+                <div
+                  className="css-1dbjc4n r-1l31rp8 r-kdyh1x r-rs99b7 r-18u37iz r-1ifxtd0 r-1s2bzr4 r-xd6kpl r-ymttw5 r-95jzfe r-xaq1zp"
+                  style={{
+                    marginLeft: "20px",
+                    alignItems: "center",
+                  }}
+                >
+                  <div
+                    className="css-1dbjc4n r-18u37iz r-1wtj0ep r-1ifxtd0 r-1mf7evn"
+                    style={{
+                      flex: "3 1 0%",
+                      marginRight: "160px"
+                    }}
+                  >
+                    <div className="css-1dbjc4n r-13awgt0 r-18u37iz">
+                      <div
+                        className="css-1dbjc4n r-1b7u577 r-1bymd8e"
+                        style={{ width: "50px" }}
+                      >
+                        <img
+                          alt="VietJet Air"
+                          importance="low"
+                          loading="lazy"
+                          src="https://ik.imagekit.io/tvlk/image/imageResource/2015/12/17/1450350670702-a9dba44d3e9fe096f83ffe00d56a99ec.png?tr=q-75,w-28"
+                          srcSet="https://ik.imagekit.io/tvlk/image/imageResource/2015/12/17/1450350670702-a9dba44d3e9fe096f83ffe00d56a99ec.png?tr=q-75,w-28 1x, https://ik.imagekit.io/tvlk/image/imageResource/2015/12/17/1450350670702-a9dba44d3e9fe096f83ffe00d56a99ec.png?tr=dpr-2,q-75,w-28 2x, https://ik.imagekit.io/tvlk/image/imageResource/2015/12/17/1450350670702-a9dba44d3e9fe096f83ffe00d56a99ec.png?tr=dpr-3,q-75,w-28 3x"
+                          decoding="async"
+                          width={28}
+                          style={{
+                            objectFit: "contain",
+                            objectPosition: "50% 50%",
+                          }}
+                        />
+                      </div>
+                      <div className="css-1dbjc4n" style={{ width: "100%" }}>
+                        <h4
+                          aria-level={4}
+                          dir="auto"
+                          role="heading"
+                          className="css-4rbku5 css-901oao r-1sixt3s r-1b43r93 r-b88u0q r-1cwl3u0 r-fdjqy7"
+                          style={{
+                            color: "rgb(3, 18, 26)",
+                          }}
+                        >
+                        </h4>
+                        <div
+                          dir="auto"
+                          className="css-901oao r-1sixt3s r-1b43r93 r-majxgm r-rjixqe r-14gqq1x r-fdjqy7"
+                          style={{
+                            color: "rgb(3, 18, 26)",
+                          }}
+                        >
+                          {item.maChuyenBay} • Khuyến mãi
+                        </div>
+                        <br />
+                        <div
+                          dir="auto"
+                          className="css-901oao r-1sixt3s r-1b43r93 r-majxgm r-rjixqe r-14gqq1x r-fdjqy7"
+                          style={{
+                            color: "rgb(3, 18, 26)",
+                          }}
+                        >
+                          {item.noiDi} → {item.noiDen}
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div className="css-1dbjc4n" style={{ flex: "7 1 0%", marginTop: "20px" }}>
+                    <div className="css-1dbjc4n r-18u37iz r-1w6e6rj">
+                      <div className="css-1dbjc4n r-3691iy r-1rem5b8">
+                        <div className="css-1dbjc4n r-18u37iz r-1w6e6rj r-1h0z5md r-6gpygo">
+                          <div className="css-1dbjc4n r-13awgt0" style={{marginRight: "50px"}}>
+                            <p style={{color: "black", fontSize: "20px"}}>Chi tiết giá</p>
+                            <br />
+                            <div className="css-1dbjc4n r-1mnahxq">
+                              <div
+                                dir="auto"
+                                className="css-901oao r-13awgt0 r-1sixt3s r-1b43r93 r-majxgm r-rjixqe r-19u6a5r r-fdjqy7"
+                                style={{
+                                  color: "rgb(104, 113, 118)",
+                                }}
+                              >
+                                Vé người lớn cơ bản (x{sessionStorage.nguoiLon})                             
+                              </div>
+                            </div>
+                            <div className="css-1dbjc4n r-1mnahxq">
+                              <div
+                                dir="auto"
+                                className="css-901oao r-13awgt0 r-1sixt3s r-1b43r93 r-majxgm r-rjixqe r-19u6a5r r-fdjqy7"
+                                style={{
+                                  color: "rgb(104, 113, 118)",
+                                }}
+                              >
+                                Vé trẻ em cơ bản (x{sessionStorage.treEm})                                    
+                              </div>
+                            </div>
+                            <div className="css-1dbjc4n r-1mnahxq">
+                              <div
+                                dir="auto"
+                                className="css-901oao r-13awgt0 r-1sixt3s r-1b43r93 r-majxgm r-rjixqe r-19u6a5r r-fdjqy7"
+                                style={{
+                                  color: "rgb(104, 113, 118)",
+                                }}
+                              >
+                                Vé em bé cơ bản (x{sessionStorage.emBe})                                      
+                              </div>
+                            </div>
+                            <hr  width="100%" align="center" />                        
+                            <div className="css-1dbjc4n r-1mnahxq">
+                              <div
+                                dir="auto"
+                                className="css-901oao r-13awgt0 r-1sixt3s r-1b43r93 r-majxgm r-rjixqe r-19u6a5r r-fdjqy7"
+                                style={{
+                                  color: "rgb(104, 113, 118)",
+                                }}
+                              >
+                                Tổng tiền bạn trả                                         
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                  <div className="css-1dbjc4n" style={{ flex: "7 1 0%", marginTop: "20px" }}>
+                    <div className="css-1dbjc4n r-18u37iz r-1w6e6rj">
+                      <div className="css-1dbjc4n r-3691iy r-1rem5b8">
+                        <div className="css-1dbjc4n r-18u37iz r-1w6e6rj r-1h0z5md r-6gpygo">
+                          <div className="css-1dbjc4n r-13awgt0">
+                            <p style={{color: "white", fontSize: "20px"}}>Chi tiết giá</p>
+                            <br />
+                            <div className="css-1dbjc4n r-1mnahxq">
+                              <div
+                                dir="auto"
+                                className="css-901oao r-13awgt0 r-1sixt3s r-1b43r93 r-majxgm r-rjixqe r-19u6a5r r-fdjqy7"
+                                style={{
+                                  color: "rgb(104, 113, 118)",
+                                }}
+                              >
+                                {[(item.donGia)*(sessionStorage.nguoiLon)].toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".")} VND
+                              </div>
+                            </div>
+                            <div className="css-1dbjc4n r-1mnahxq">
+                              <div
+                                dir="auto"
+                                className="css-901oao r-13awgt0 r-1sixt3s r-1b43r93 r-majxgm r-rjixqe r-19u6a5r r-fdjqy7"
+                                style={{
+                                  color: "rgb(104, 113, 118)",
+                                }}
+                              >
+                                {[(item.donGia)*(sessionStorage.treEm)].toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".")} VND
+                              </div>
+                            </div>
+                            <div className="css-1dbjc4n r-1mnahxq">
+                              <div
+                                dir="auto"
+                                className="css-901oao r-13awgt0 r-1sixt3s r-1b43r93 r-majxgm r-rjixqe r-19u6a5r r-fdjqy7"
+                                style={{
+                                  color: "rgb(104, 113, 118)",
+                                }}
+                              >
+                                {[(sessionStorage.emBe)*110.000]} VND
+                              </div>
+                            </div>
+                            <hr  width="100%" align="center" />                        
+                            <div className="css-1dbjc4n r-1mnahxq">
+                              <div
+                                dir="auto"
+                                className="css-901oao r-13awgt0 r-1sixt3s r-1b43r93 r-majxgm r-rjixqe r-19u6a5r r-fdjqy7"
+                                style={{
+                                  color: "rgb(104, 113, 118)",
+                                }}
+                              >
+                                {[(item.donGia)*(sessionStorage.nguoiLon) + (item.donGia)*(sessionStorage.treEm) + (sessionStorage.emBe)*110.000].toString().replace(/\B(?=(\d{3})+(?!\d))/g, ".")} VND
                               </div>
                             </div>
                           </div>
