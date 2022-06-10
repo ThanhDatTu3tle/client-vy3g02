@@ -1,4 +1,20 @@
+import React from "react";
+import {
+	DropdownMenu,
+	Button,
+} from "reactstrap";
+import { userGlobalCheck } from "../utils/user.me.ts";
+import { MdAccountCircle } from "react-icons/md";
+
 const Header = () => {
+  const userMe = userGlobalCheck();
+
+	const onLogOutClick = () => {
+		localStorage.removeItem("token");
+		localStorage.removeItem("user_me");
+		window.location.href = `https://profile.vinhphancommunity.xyz/Login?redirect=http://localhost:3000`;
+	};
+
   return (
     <div
       className="css-1dbjc4n r-ipm5af r-13qz1uu"
@@ -258,50 +274,31 @@ const Header = () => {
                 </div>
               </div>
             </div>
+						<MdAccountCircle
+							size={40}
+						/>
             <div className="css-1dbjc4n r-88pszg">
               <div style={{ cursor: "pointer" }}>
                 <div className="css-1dbjc4n r-1awozwy r-18u37iz">
-                  <img
-                    importance="low"
-                    loading="lazy"
-                    src="https://d1785e74lyxkqq.cloudfront.net/_next/static/v2/f/f2ccb8732da6068a2f24a40aea2bdcdd.svg"
-                    decoding="async"
-                    width={14}
-                    height={14}
-                    className="r-tuq35u"
-                    style={{
-                      backgroundColor: "rgba(205, 208, 209, 1)",
-                      borderTopLeftRadius: 9999,
-                      borderTopRightRadius: 9999,
-                      borderBottomRightRadius: 9999,
-                      borderBottomLeftRadius: 9999,
-                      objectFit: "fill",
-                      objectPosition: "50% 50%",
-                    }}
-                  />
-                  <div
-                    dir="auto"
-                    className="css-901oao r-1sixt3s r-1b43r93 r-majxgm r-rjixqe r-fdjqy7"
-                    style={{
-                      color: "rgba(104, 113, 118, 1)",
-                      marginRight: 4,
-                      marginLeft: 4,
-                    }}
-                    
-                  >
-                    <a href="http://95.111.203.4:3020/Login?redirect=http://139.59.225.244:3000/air">
-                      Đăng Nhập
-                    </a>
-                  </div>
-                  <img
-                    importance="low"
-                    loading="lazy"
-                    src="https://d1785e74lyxkqq.cloudfront.net/_next/static/v2/3/393c6a1dee81cd3dc84df59672d43edb.svg"
-                    decoding="async"
-                    width={12}
-                    height={12}
-                    style={{ objectFit: "fill", objectPosition: "50% 50%" }}
-                  />
+                    {userMe.user && (
+                      <div className="d-flex">
+												<div style={{marginTop: "10px"}}>
+													{
+														userMe.user
+															.name
+													}
+												</div>
+												<Button
+													className="dropdown-item"
+													color="info"
+													onClick={
+														onLogOutClick
+													}
+												>
+													Log out
+												</Button>
+                      </div>
+                    )}
                 </div>
               </div>
               <div
@@ -339,22 +336,18 @@ const Header = () => {
               }}
             >
               <div
-                dir="auto"
-                className="css-901oao r-1yadl64 r-1vonz36 r-109y4c4 r-1cis278 r-1udh08x r-t60dpp r-u8s1d r-3s2u2q r-92ng3h"
-              >
-                Đăng ký
-              </div>
-              <div
                 className="css-1dbjc4n r-1awozwy r-13awgt0 r-18u37iz r-1777fci"
                 style={{ opacity: 1 }}
               >
-                <div
-                  dir="auto"
-                  aria-hidden="true"
-                  className="css-901oao css-bfa6kz r-jwli3a r-1sixt3s r-1o4mh9l r-b88u0q r-f0eezp r-q4m81j"
-                >
-                  Đăng ký
-                </div>
+                <a href="https://profile.vinhphancommunity.xyz/signup?redirect=http://139.59.225.244:3000/" style={{textDecoration: "none"}}>
+                  <div
+                    dir="auto"
+                    aria-hidden="true"
+                    className="css-901oao css-bfa6kz r-jwli3a r-1sixt3s r-1o4mh9l r-b88u0q r-f0eezp r-q4m81j"
+                  >
+                    Đăng ký
+                  </div>
+                </a>              
               </div>
             </div>
           </div>
