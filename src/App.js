@@ -3,8 +3,10 @@ import { Route, Routes } from "react-router-dom";
 import Header from './components/Header';
 import Footer from './components/Footer';
 import Me from './components/Me';
+import PreBooking from "./components/PreBooking";
 import Air from "./pages/Air";
 import DetailAir from "./pages/DetailAir";
+import Payment from "./pages/Payment";
 
 function App() {
 	return (
@@ -13,6 +15,7 @@ function App() {
 			<Routes>
 				<Route path="/" exact element={<Air />} />
 				<Route path="me" element={<Me />} />
+				<Route path={`${sessionStorage.shortBookingUrl}`} element={<PreBooking />} />
 				<Route path={`${sessionStorage.shortUrl}`}  element={<DetailAir />} />
 			</Routes>	
 			<Footer />

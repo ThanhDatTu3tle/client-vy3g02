@@ -5,18 +5,35 @@ const PostFlight = () => {
 
   const [flight, setFlight] = useState([]);
 
+  const [flightId, setFlightId] = useState("VJ-104");
+
   useEffect(() => {
     let mounted = true;
     const apiUrl = sessionStorage.getItem('url');
+
     fetch(`${apiUrl}`)
       .then(response => response.json())
       .then(items => {
         if(mounted) {
-          setFlight(items)
+          setFlight(items);
         }
       })
       return () => mounted = false;
   }, []);
+
+
+
+  const sendQuery = () => {
+
+
+    fetch(`http://139.59.225.244:3001/flight/id?maChuyenBay=${flightId}`);
+
+    sessionStorage.bookingUrl = `http://139.59.225.244:3001/flight/id?maChuyenBay=${flightId}`;
+    sessionStorage.shortBookingUrl = `maChuyenBay=${flightId}`;
+
+    window.location.reload();
+    window.location.pathname = `${sessionStorage.shortBookingUrl}`;
+	};
 
   return (
     <div>
@@ -165,37 +182,17 @@ const PostFlight = () => {
                     /khách
                   </div>
                 </div>
-                <div
-                  aria-live="polite"
-                  role="button"
-                  tabIndex={0}
-                  className="css-18t94o4 css-1dbjc4n r-kdyh1x r-1loqt21 r-10paoce r-1e081e0 r-5njf8e r-1otgn73 r-lrvibr"
-                  style={{
-                    backgroundColor: "rgb(255, 94, 31)",
-                  }}
-                >
-                  <div
-                    dir="auto"
-                    className="css-901oao r-1yadl64 r-1vonz36 r-109y4c4 r-1cis278 r-1udh08x r-t60dpp r-u8s1d r-3s2u2q r-92ng3h"
-                  >
-                    Chọn
+                  <div className="IwltO">
+                    <div>
+                      <button 
+                      className="_3-JID _22K0g gLbQ- _90_75" 
+                      type="button" 
+                      onClick={sendQuery}
+                      value={item.maChuyenBay}>
+                        Chọn chuyến bay  
+                      </button>
+                    </div>          
                   </div>
-                  <div
-                    className="css-1dbjc4n r-1awozwy r-13awgt0 r-18u37iz r-1777fci"
-                    style={{ opacity: 1 }}
-                  >
-                    <div
-                      dir="auto"
-                      aria-hidden="true"
-                      className="css-901oao css-bfa6kz r-1sixt3s r-1o4mh9l r-b88u0q r-f0eezp r-q4m81j"
-                      style={{
-                        color: "rgb(255, 255, 255)",
-                      }}
-                    >
-                      Chọn
-                    </div>
-                  </div>
-                </div>
               </div>
             </div>
             {/* CHI TIET CHUYEN BAY */}
@@ -359,7 +356,11 @@ const PostFlight = () => {
                                         color: "rgb(3, 18, 26)",
                                       }}
                                     >
-                                      {item.maChuyenBay} • Khuyến mãi
+                                      <label
+                                        value={flightId}
+                                        onChange={(e) => setFlightId(e.target.value)}>
+                                        {item.maChuyenBay} • Khuyến mãi
+                                      </label>
                                     </div>
                                   </div>
                                 </div>

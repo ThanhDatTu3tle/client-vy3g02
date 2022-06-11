@@ -12,7 +12,7 @@ const Header = () => {
 	const onLogOutClick = () => {
 		localStorage.removeItem("token");
 		localStorage.removeItem("user_me");
-		window.location.href = `https://profile.vinhphancommunity.xyz/Login?redirect=http://localhost:3000`;
+		window.location.href = `https://profile.vinhphancommunity.xyz/Login?redirect=http://localhost:3000/me`;
 	};
 
   return (
