@@ -5,7 +5,7 @@ const PostFlight = () => {
 
   const [flight, setFlight] = useState([]);
 
-  const [flightId, setFlightId] = useState("VJ-104");
+  const [flightId, setFlightId] = useState(`VJ-112`);
 
   useEffect(() => {
     let mounted = true;
@@ -30,6 +30,15 @@ const PostFlight = () => {
 
     sessionStorage.bookingUrl = `http://139.59.225.244:3001/flight/id?maChuyenBay=${flightId}`;
     sessionStorage.shortBookingUrl = `maChuyenBay=${flightId}`;
+
+    for(var i = 0; i < flight.length; i++) {
+      sessionStorage.id = `${flight[i].maChuyenBay}`;
+      if (`maChuyenBay=${sessionStorage.id}` === sessionStorage.getItem('shortBookingUrl')) {
+        sessionStorage.sttChuyenBay = `${i}`;
+      }
+    };
+
+    setFlightId(`${sessionStorage.id}`);
 
     window.location.reload();
     window.location.pathname = `${sessionStorage.shortBookingUrl}`;

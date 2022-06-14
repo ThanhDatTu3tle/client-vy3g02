@@ -1,7 +1,85 @@
-import ChuyenBay from "../components/ChuyenBay";
+import React, { useEffect } from "react";
+import Tabs from "@mui/material/Tabs";
+import Tab from "@mui/material/Tab";
+import Typography from "@mui/material/Typography";
+import Box from "@mui/material/Box";
+import { Container, Row, Col, Card, CardBody } from "reactstrap";
+import { useState } from "react";
+import CheckInfo from "../components/CheckInfo";
+// import PaymentCard from "../components/PaymentCard";
+// import ATMCard from "../components/ATMCard";
+import IndexPayment from "../components/indexPayment";
+import { useParams } from "react-router-dom";
+import axiosMethod from "../utils/api-client.js";
+import { userGlobalCheck } from "../utils/user.me.ts";
+import globalStateAndAction from "../container/global.state.action.js";
+import ChiTietGiaVe from "../components/ChiTietGiaVe";
 
-const Payment = () => {
-  return (
+// interface TabPanelProps {
+// 	children?: React.ReactNode;
+// 	index: number;
+// 	value: number;
+// }
+
+function TabPanel(props) {
+	const { children, value, index, ...other } = props;
+
+  const userMe = userGlobalCheck();
+  const [inputs, setInputs] = useState({
+		ten: userMe.user.name,
+		sdt: userMe.user.phone,
+		email: userMe.user.email,
+	});
+
+	return (
+		<div
+			role="tabpanel"
+			hidden={value !== index}
+			id={`vertical-tabpanel-${index}`}
+			aria-labelledby={`vertical-tab-${index}`}
+			{...other}
+		>
+			{value === index && (
+				<Box sx={{ p: 3 }}>
+					<Typography>{children}</Typography>
+				</Box>
+			)}
+		</div>
+	);
+}
+
+function a11yProps(index) {
+	return {
+		id: `vertical-tab-${index}`,
+		"aria-controls": `vertical-tabpanel-${index}`,
+	};
+}
+
+const Payments = () => {
+	const [value, setValue] = React.useState(0);
+	const { id } = useParams();
+
+	const handleChange = (event, newValue) => {
+		setValue(newValue);
+	};
+
+  const [flight, setFlight] = useState([]);
+
+	useEffect(() => {
+    let mounted = true;
+    const apiUrl = sessionStorage.getItem('url');
+
+    fetch(`${apiUrl}`)
+      .then(response => response.json())
+      .then(items => {
+        if(mounted) {
+          setFlight(items);
+        }
+      })
+      return () => mounted = false;
+  }, []);
+
+	return (
     <div>
       <div className="css-1dbjc4n" data-testid="StandarizedOTPFlow" />
       <div
@@ -64,7 +142,103 @@ const Payment = () => {
 
                       <div className="body">
                         <br />
-                        <ChuyenBay />
+                        <Container className="mt-5" style={{width: "150%"}}>
+                          <Row>
+                            <Col
+                              className="form"
+                              id="formpay"
+                              sm={{
+                                offset: 1,
+                                size: 9,
+                              }}
+                            >
+                              <Card className="shadow">
+                                <CardBody>
+                                  <Box
+                                    sx={{
+                                      flexGrow: 1,
+                                      bgcolor: "background.paper",
+                                      display: "flex",
+                                      height: 224,
+                                    }}
+                                    className="row"
+                                  >
+                                    <div className="col-md-3 p-0">
+                                      <Tabs
+                                        orientation="vertical"
+                                        variant="scrollable"
+                                        value={value}
+                                        onChange={handleChange}
+                                        aria-label="Vertical tabs example"
+                                        sx={{
+                                          borderRight: 1,
+                                          borderColor:
+                                            "divider",
+                                        }}
+                                        style={{width: "180px"}}
+                                      >
+                                        <Tab
+                                          className="fw-bold"
+                                          label="Thẻ thanh toán"
+                                          {...a11yProps(0)}
+                                        />
+                                        <Tab
+                                          className="fw-bold"
+                                          label="Chuyển khoản ngân hàng"
+                                          {...a11yProps(1)}
+                                        />
+                                        <Tab
+                                          className="fw-bold"
+                                          label="Thẻ ATM nội địa"
+                                          {...a11yProps(2)}
+                                        />
+                                      </Tabs>
+                                    </div>
+                                    <div className="col-md-9 p-0">
+                                      <TabPanel
+                                        value={value}
+                                        index={0}
+                                      >
+                                        <IndexPayment />
+                                        {/* <PaymentCard /> */}
+                                        <ChiTietGiaVe />
+                                        <button
+                                          className="btn btn-dark mt-5"
+                                          id="submit"
+                                        >
+                                          <span id="button-text">
+                                              Pay now
+                                          </span>
+                                        </button>
+                                      </TabPanel>
+                                      <TabPanel
+                                        value={value}
+                                        index={1}
+                                      >
+                                        Hệ thống đang bảo trì...!
+                                      </TabPanel>
+                                      <TabPanel
+                                        value={value}
+                                        index={2}
+                                      >
+                                        Hệ thống đang bảo trì...!
+                                      </TabPanel>
+                                    </div>
+                                  </Box>
+                                </CardBody>
+                              </Card>
+                            </Col>
+                            <Col
+                              sm={{
+                                size: 2,
+                              }}
+                            >
+                              <CheckInfo />
+                              
+                            </Col>
+                          </Row>
+                        </Container>
+                        {/* loc */}
                       </div>
 
                       {/* vggvgv */}
@@ -115,7 +289,7 @@ const Payment = () => {
         </div>
       </div>
     </div>
-  );
+	);
 };
 
-export default Payment;
+export default globalStateAndAction(Payments);

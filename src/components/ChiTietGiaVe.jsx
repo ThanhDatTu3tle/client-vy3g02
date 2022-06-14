@@ -18,6 +18,18 @@ const ChiTietGiaVe = () => {
       return () => mounted = false;
   }, []);
 
+  const [sttGiaVe, setSttGiaVe] = useState(() => {
+    for(var i = 1; i <= flight.length; i++) {
+      var id = sessionStorage.getItem('shortBookingUrl');
+      if (`maChuyenBay=${flight[i].maChuyenBay}` == id) {
+        return i;
+      }
+      return i;
+    };
+
+    return i;
+  });
+
   return (
     <div>
       <div>
@@ -28,11 +40,12 @@ const ChiTietGiaVe = () => {
             className="css-1dbjc4n r-1l31rp8 r-kdyh1x r-rs99b7 r-18u37iz r-1ifxtd0 r-1s2bzr4 r-xd6kpl r-ymttw5 r-95jzfe r-xaq1zp"
             style={{
               alignItems: "center",
-              backgroundColor: "white"
+              backgroundColor: "white",
+              width: "80%"
             }}
           >
-            <div className="css-1dbjc4n" style={{ flex: "7 1 0%", marginTop: "20px", marginLeft: "50px" }}>
-              <div className="css-1dbjc4n r-18u37iz r-1w6e6rj">
+            <div className="css-1dbjc4n" style={{ flex: "7 1 0%" }}>
+              <div className="css-1dbjc4n r-18u37iz r-1w6e6rj" style={{marginRight: "60px"}}>
                 <div className="css-1dbjc4n r-3691iy r-1rem5b8">
                   <div className="css-1dbjc4n r-18u37iz r-1w6e6rj r-1h0z5md r-6gpygo">
                     <div className="css-1dbjc4n r-13awgt0" style={{marginRight: "50px"}}>
@@ -147,7 +160,7 @@ const ChiTietGiaVe = () => {
               </div>
             </div>
           </div>
-        )[0] :
+        )[`${sessionStorage.sttChuyenBay}`] :
         null
       } 
       </div>

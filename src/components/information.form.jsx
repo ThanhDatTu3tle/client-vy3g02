@@ -18,6 +18,8 @@ import globalStateAndAction from "../container/global.state.action.js";
 import { useNavigate } from "react-router-dom";
 import { userGlobalCheck } from "../utils/user.me.ts";
 import FormInformationPassenger from "./FormInformationPassenger.jsx";
+import Swal from "sweetalert2";
+import withReactContent from "sweetalert2-react-content";
 
 const InformationForm = () => {
 	const navigate = useNavigate();
@@ -35,7 +37,16 @@ const InformationForm = () => {
 		requirement: false,
 	});
 
-  const [nguoiLon, setNguoiLon] = useState([1, 2, 3, 4]);
+  const [nguoiLon, setNguoiLon] = useState(() => {
+		var array = [];
+		var x = sessionStorage.getItem('nguoiLon');
+
+		for(var i = 1; i <= x; i++) {
+			array.push(x);
+		}
+
+		return array;
+	});
 
 	//Xử lý inputs
 	const handleChange = (event) => {
@@ -44,8 +55,79 @@ const InformationForm = () => {
 		setInputs((values) => ({ ...values, [name]: value }));
 	};
 
+	//form Submit
+	const MySwal = withReactContent(Swal);
+
+	//Handle Submit
+	const handleSubmit = async (e) => {
+		e.preventDefault();
+		if (!inputs.ten || !inputs.email || !inputs.sdt) {
+			setErrors({
+				...errors,
+				ten: true,
+				email: true,
+				sdt: true,
+				requirement: true,
+			});
+			return MySwal.fire({
+				icon: "error",
+				title: "Oops...",
+				text: "Vui lòng kiểm tra lại thông tin !",
+			});
+		}
+		const data = {
+			...inputs,
+			maKhachHang: userMe.user.userId,
+		};
+		// await MySwal.fire({
+		// 	title: <p>Đang xử lý</p>,
+		// 	didOpen: () => {
+		// 		MySwal.showLoading();
+		// 		localStorage.setItem(
+		// 			"user_info_payment",
+		// 			JSON.stringify(data)
+		// 		);
+		// 		if (vouchers.orderId && detailApartment.maPartner) {
+		// 			localStorage.setItem(
+		// 				"order_id",
+		// 				JSON.stringify({
+		// 					orderId: vouchers.orderId,
+		// 					maPartner: detailApartment.maPartner,
+		// 				})
+		// 			);
+		// 		}
+		// 		if (!vouchers.orderId) {
+		// 			localStorage.setItem(
+		// 				"order_id",
+		// 				JSON.stringify({
+		// 					maPartner: detailApartment.maPartner,
+		// 				})
+		// 			);
+		// 		}
+		// 	},
+		// 	timer: 1000,
+		// });
+		await MySwal.fire({
+			title: "Thành công",
+			icon: "success",
+			didOpen: () => {
+				MySwal.showLoading();
+			},
+			timer: 1000,
+		});
+		await MySwal.fire({
+			title: "Chuyển đến trang thanh toán",
+			didOpen: () => {
+				MySwal.showLoading();
+			},
+			timer: 1000,
+		});
+
+		navigate(`payment`);
+	};
+
 	return (
-		<form>
+		<form onSubmit={handleSubmit}>
 			<div className="your_info mb-4">
 				<div className="mb-3 fw-bold" style={{fontSize: "20px"}}>Thông tin liên hệ</div>
         <br />

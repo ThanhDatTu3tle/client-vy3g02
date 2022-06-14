@@ -1,3 +1,4 @@
+import { isLastDayOfMonth } from 'date-fns';
 import React, { Component } from 'react';
 import { useState, useEffect } from "react";
 
@@ -7,12 +8,13 @@ const ChiTietChuyenBay = () => {
 
   useEffect(() => {
     let mounted = true;
-    const apiUrl = sessionStorage.getItem('url');
-    fetch(`${apiUrl}`)
+    const apiUrlDetail = sessionStorage.getItem('url');
+
+    fetch(`${apiUrlDetail}`)
       .then(response => response.json())
       .then(items => {
         if(mounted) {
-          setFlight(items)
+          setFlight(items);
         }
       })
       return () => mounted = false;
@@ -161,7 +163,7 @@ const ChiTietChuyenBay = () => {
               </div>
             </div>              
           </div>
-        )[0] :
+        )[`${sessionStorage.sttChuyenBay}`] :
         null
       } 
       </div>

@@ -16,6 +16,7 @@ function App() {
 				<Route path="/" exact element={<Air />} />
 				<Route path="me" element={<Me />} />
 				<Route path={`${sessionStorage.shortBookingUrl}`} element={<PreBooking />} />
+				<Route path={`${sessionStorage.shortBookingUrl}/payment`} element={<Payment />} />
 				<Route path={`${sessionStorage.shortUrl}`}  element={<DetailAir />} />
 			</Routes>	
 			<Footer />
